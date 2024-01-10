@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Frontend Showcase for Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Chatbot Logo">
+      <div class="text-container">
+        <p class="tagline">Aameeq ChatBot</p>
+        <p class="additional-line">Ask me Anything!</p>
+      </div>
+    </div>
+    
+    <div class="chat-box">
+      <!-- Chat messages -->
+    </div>
+
+    <div class="user-input-container">
+      <input type="text" class="user-input" placeholder="Type a message...">
+      <button class="send-btn">Send</button>
+    </div>
+  </div>
+    
+  <script>
+    // JavaScript code for chatbot functionality
+    const userInput = document.querySelector('.user-input');
+    const chatBox = document.querySelector('.chat-box');
+
+    function handleUserInput() {
+      const userMessage = userInput.value;
+      displayMessage('user', userMessage);
+      const botResponse = generateBotResponse(userMessage);
+      setTimeout(() => {
+        displayMessage('bot', botResponse);
+      }, 1000);
+      userInput.value = '';
+    }
+
+     function displayMessage(sender, message) {
+      const chatMsgDiv = document.createElement('div');
+      chatMsgDiv.classList.add('chat-msg', sender);
+
+      const avatarImg = document.createElement('img');
+      avatarImg.classList.add('avatar');
+
+      const messageParagraph = document.createElement('p');
+      messageParagraph.classList.add('message');
+      messageParagraph.textContent = message;
+
+      if (sender === 'user') {
+        avatarImg.src = 'images/personlogo.png';
+        avatarImg.alt = 'User Avatar';
+      } else {
+        avatarImg.src = 'images/chatbotlogo.png';
+        avatarImg.alt = 'Chatbot Avatar';
+      }
+
+      chatMsgDiv.appendChild(avatarImg);
+      chatMsgDiv.appendChild(messageParagraph);
+      chatBox.appendChild(chatMsgDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function generateBotResponse(userInput) {
+        const lowerCaseInput = userInput.toLowerCase();
+
+        if (lowerCaseInput.includes('hello') ||
+            lowerCaseInput.includes('hi') ||
+            lowerCaseInput.includes('good morning!') ||
+            lowerCaseInput.includes('good evening!') ||
+            lowerCaseInput.includes('good afternoon')) {
+            return 'Hello there! How can I assist you today?';
+        } else if (lowerCaseInput.includes('what is aameeq?') ||
+            lowerCaseInput.includes('what aameeq do?') ||
+            lowerCaseInput.includes('what is aameeq\'s primary focus and product offering?') ||
+            lowerCaseInput.includes('what advantages does aameeq\'s vr learning platform offer over traditional learning methods?')) {
+            return 'Aameeq specializes in offering a comprehensive VR learning platform that hosts a diverse library of content spanning various industries. It aims to revolutionize learning and development through immersive experiences in virtual reality.';
+
+        } else if (lowerCaseInput.includes('what is your company going to make? please describe your product and what it does or will do.')) {
+            return 'Aameeq is a one-window solution for learning and development through virtual reality. It will host a comprehensive library of content required across industries, from healthcare to manufacturing to education. Aameeq is currently conducting market research through a markup model to identify specific content needs and ensure that its library is tailored to the needs of its users.Aameeq\'s VR learning platform offers a number of advantages over traditional learning methods. First, it is more engaging and interactive. VR allows users to learn by doing, which helps them to retain information more effectively. Second, VR is more accessible. Aameeq\'s platform will be available on all major VR headsets, making it easy for users to learn from anywhere. Third, VR is more affordable. Aameeq\'s subscription model will make VR learning more affordable for individuals and businesses alike.In addition to its library of content, Aameeq will also offer a number of features that make it easy to manage and deliver VR learning. For example, Aameeq\'s app will allow users to manage multiple VR headsets and track user progress. Aameeq will also offer a variety of tools and resources to help instructors create and deliver their own VR learning experiences.Aameeq is committed to making learning more accessible, engaging, and affordable for everyone. We believe that VR has the potential to revolutionize the way we learn, and Aameeq is at the forefront of this revolution.Aameeq has found through its market penetration approach that 97% of senior decision-makers in the corporate, government, healthcare, and education sectors in Pakistan have had an immersive VR experience through Aameeq\'s offerings or approach. This has led Aameeq to decide that it needs to redirect its energy towards building a VR ecosystem for Pakistan. To do this, Aameeq is reaching out to different government departments in terms of policy making, conducting advocacy sessions for the academia and corporate sectors, and conducting workshops for students on learning technologies that support VR.Based on market insights, Aameeq has developed the understanding that an AI assistant would be an integral part of all the content that Aameeq has to offer. This is because the market appetite for VR is not just about having an immersive experience, but also about having a better undistracted, assisted experience that clears the user\'s concepts of the available content.';
+
+        } else if (lowerCaseInput.includes('who writes code, or does other technical work on your product? was any of it done by a non-founder? please explain.')) {
+            return 'Currently, Aameeq is not developing its own VR learning content. Instead, it is working with universities to provide skilled resources for research and small projects. This approach is cost-effective and allows Aameeq to access a wide range of expertise.For example, for a product that requires NVIDIA and Unreal Engine expertise, Aameeq has partnered with Rifah University. For simple 360 tours, Aameeq has partnered with IBA Sukkur University. And for marketing and advocacy tasks, Aameeq has partnered with SMIU University.This approach allows Aameeq to focus its resources on strategic initiatives, such as building partnerships and developing its ecosystem. In the future, Aameeq plans to develop its own in-house team for maintenance and support. However, in the early stages of development, it is more cost-effective to outsource major development tasks to academia.Aameeq\'s strategic approach is evident in its partnerships with universities. By working with academia, Aameeq is able to access cutting-edge research and expertise. This will help Aameeq to develop a VR learning platform that is truly innovative and meets the needs of the market.';
+        } else if (lowerCaseInput.includes('how far along are you?')) {
+            return 'Aameeq is a relatively new company, but it has made significant progress in a short period of time. The company has conducted market research and is building an ecosystem of partners to support its VR learning platform. Aameeq has also signed MOUs with several universities in Pakistan to provide skilled resources for research and small projects.Aameeq is not yet developing its own VR learning content, but it is working closely with its partners to develop a pipeline of products and services. The company is also focused on building strategic alliances and institutional lobbying for marketing and advocacy purposes.Overall, Aameeq is on track to achieve its goal of becoming a leading provider of VR learning solutions. The company has a strong foundation in market research, ecosystem building, and partnerships. Aameeq is also committed to working with academia and industry leaders to develop innovative and effective VR learning solutions.';
+        } else if (lowerCaseInput.includes('what inspired your transition from a business development lead at axease to dedicating your efforts full-time to aameeq\'s vr learning platform?') ||
+        lowerCaseInput.includes('could you elaborate on your vision for aameeq and how you foresee it impacting the learning landscape?')) {
+            return 'I have been working on Aameeq for three years, and I have been working on it full-time for one years. I left my job as a Business Development Lead at Axease in November 2022 to focus on Aameeq full-time.I am passionate about Aameeq because I believe that VR has the potential to revolutionize the way we learn. Aameeq is a VR learning platform that provides users with immersive and interactive experiences that help them learn new concepts and skills more effectively.I am committed to making Aameeq a success because I believe that it has the potential to make a real difference in the world. I am excited to see how Aameeq can be used to help people learn new skills, get better jobs, and achieve their goals';
+        } else if (lowerCaseInput.includes('who are your competitors? what do you understand about your business that they don\'t?') ||
+        lowerCaseInput.includes('who are your competitors?')||
+        lowerCaseInput.includes('what do you understand about your business that they don\'t?')) {
+            return 'Strivr VR,Immerse VR,VictoryXR,ClassVR,zSpace,LARA,TeachVR,EduVR,VRFirst,Immersive VR Education,eLearning Brothers,VRVision VictoryXR is a VR training platform that helps businesses train their employees on a variety of skills, including soft skills such as leadership and communication, as well as hard skills such as product knowledge and manufacturing processes. VictoryXR\'s VR simulations are designed to be immersive and engaging, and they provide users with feedback on their performance. VictoryXR\'s customers include companies such as Walmart, FedEx, and Nike.All of the organizations on this list offer VR solutions that can be used in both corporate and educational settings. However, some of them, such as Strivr VR and VictoryXR, have a specific focus on corporate training.  Aameeq is a VR platform solution that provides businesses and schools with a wider range of VR solutions and makes VR more accessible and affordable. It is different from other VR solution providers in the following ways:Focusing on high-quality content. Aameeq will differentiate itself by offering a wide range of high-quality VR content that is tailored to the needs of specific industries and markets in amalgamation of AI and VR.Partnering with businesses and schools. Aameeq will partner with businesses and schools to develop custom VR training programs that are tailored to their specific needs.Its list of content would be based on already conducted research and requirement of the industry. Providing excellent customer support. Aameeq will differentiate itself by providing excellent customer support to its customers. This could include helping customers to choose the right VR headsets and content for their needs, troubleshooting problems, and providing training on how to use Aameeq\'s platform.Cheaper content: Aameeq is in a position to offer cheaper content due to the availability of cheaper resources in Pakistan. This is especially beneficial for developing markets where expensive VR solutions might not penetrate easily. Aameeq can easily capture this market through low subscription rates.Global expansion: Aameeq\'s platform solution eliminates the global expansion hurdles of VR products. This is because Aameeq does not need to manage inventory or ship VR headsets to customers. Businesses and schools can simply purchase VR headsets from any provider and use Aameeq\'s platform to access them.';
+         } else if (lowerCaseInput.includes('Company Description 250 character')||
+        lowerCaseInput.includes('company description')) {
+            return 'Aameeq is offering a unique end-to-end VR learning platform that is designed to be accessible, engaging, and affordable. Through in-depth market research, Aameeq has identified the need for an AI-enabled VR product, and is committed to providing a comprehensive solution for learning and development.';
+         } else if (lowerCaseInput.includes('competitive advantage (unique value proposition) 250 character')) {
+            return 'Aameeq is offering a unique end-to-end VR learning platform that is designed to be accessible, engaging, and affordable. Through in-depth market research, Aameeq has identified the need for an AI-enabled VR product, and is committed to providing a comprehensive solution for learning and development.';
+        } else if (lowerCaseInput.includes('future vision')) {
+            return 'Aameeq envisions a future where VR is the go-to platform for learning and development. We believe that VR has the potential to revolutionize the way we learn, and we are committed to making VR learning accessible, engaging, and affordable for everyone.We see Aameeq as the leading provider of VR learning solutions. Our platform will offer a comprehensive library of content, as well as a variety of features and tools to make it easy for individuals and businesses to create and deliver their own VR learning experiences.We also see Aameeq as playing a leading role in building a VR ecosystem for Pakistan. We are working with government, academia, and the corporate sector to develop policies and standards that will support the growth of VR learning. We are also providing training and resources to help educators and businesses create high-quality VR learning content.In the future, we see Aameeq as the go-to platform for anyone who wants to learn new skills or knowledge. Whether you are a student, a professional, or simply someone who is curious about the world around you, Aameeq will provide you with the tools and resources you need to learn and grow.Here are some specific ways that Aameeq will use to  achieve its vision:Continue to develop a comprehensive library of VR learning content. Aameeq\'s content should cover a wide range of topics, from academic subjects to professional skills to personal enrichment topics.Make it easy for individuals and businesses to create and deliver their own VR learning experiences. Aameeq could provide a variety of tools and resources, such as authoring tools, templates, and asset libraries, to help users create their own VR learning content. Aameeq could also offer a marketplace where users could share and sell their VR learning content.Continue to work with government, academia, and the corporate sector to build a VR ecosystem for Pakistan. Aameeq could advocate for policies that support the development and use of VR learning in Pakistan. Aameeq could also provide training and resources to help educators and businesses create and deliver VR learning experiences.Make VR learning affordable and accessible to everyone. Aameeq could offer a variety of pricing options, including subscription plans and free content. Aameeq could also work with partners to make VR learning hardware more affordable and accessible.';
+        } else if (lowerCaseInput.includes('why will you succeed? provide a brief description of your executive team’s overall experiences and how they benefit your company’s operations. the limit is 500 characters.')) {
+            return 'Aameeq is a winning team because of our combined experience in training and development, seasoned marketing experience, and deep personal relationships with corporate HR and the education fraternity of Pakistan. This gives us a unique advantage in developing, marketing, and selling VR learning solutions that meet the needs of our target users.';
+        } else if (lowerCaseInput.includes('what problem or challenge is your start-up addressing?')) {
+            return 'Aameeq is a virtual reality (VR) startup that is developing innovative VR solutions for education and training. The company is addressing several challenges in the VR industry, including:High cost of VR headsets: VR headsets can be expensive, which can make VR technology inaccessible to many people. Aameeq is offering end to end solution making it more affordable that can be used by a wider audience Lack of compelling VR content: There is a lack of high-quality VR content that can be used for education and training. Aameeq is creating engaging and immersive VR experiences that can be used to teach a variety of subjects.Motion sickness: Some people experience motion sickness when using VR headsets. Aameeq is developing VR experiences that are designed to minimize motion sickness and make VR more comfortable for everyone.By addressing these challenges, Aameeq is making VR technology more accessible, affordable, and enjoyable for everyone. The company is also helping to create a new generation of VR applications that can be used to improve education and training.';
+        } else if (lowerCaseInput.includes('describe the positive impact your idea can have on society')) {
+            return 'Enhancing education and training: VR can provide immersive and interactive learning experiences that can improve the quality and effectiveness of education and training. VR can also enable access to remote and inaccessible locations, such as historical sites, natural wonders, or outer space. VR can also facilitate collaboration and communication among learners and educators across different regions and cultures.Improving health and well-being: VR can offer various benefits for health and well-being, such as pain management, mental health treatment, physical rehabilitation, and fitness. VR can also create positive emotions and experiences, such as relaxation, joy, and awe, that can enhance the quality of life and happiness of users.Promoting social good and awareness: VR can be used to raise awareness and empathy for social and environmental issues, such as poverty, inequality, climate change, and human rights. VR can also inspire users to take action and contribute to social good and positive change. VR can also foster social inclusion and diversity by allowing users to interact with people from different backgrounds and perspectives.';
+        } else if (lowerCaseInput.includes('aameeq official address')) {
+            return 'Office # 303, 68-C, Imperial Trade Tower, Jami Commercial, DHA Phase 7, Pakistan';
+     } else if (lowerCaseInput.includes('startup name')) {
+            return 'Aameeq';
+        } else if (lowerCaseInput.includes('email') || lowerCaseInput.includes('email address')) {
+            return 'Ibrahim@aameeq.com';
+        } else if (lowerCaseInput.includes('contact number') || lowerCaseInput.includes('contact no.')) {
+            return '03453258910';
+    } else if (lowerCaseInput.includes('startup brief')) {
+            return 'Aameeq is a VR learning platform that offers a comprehensive library of content and features to make learning more accessible, engaging, and affordable. It is committed to building a VR ecosystem for Pakistan through its offerings and advocacy.';
+    } else if (lowerCaseInput.includes('revenue')) {
+        return '536,000 PKR';
+    } else if (lowerCaseInput.includes('it need') || lowerCaseInput.includes('how it could solve the problem')) {
+        return 'Aameeq is a startup that develops immersive products using virtual reality (VR) and augmented reality (AR) technologies. To scale its business and improve its products, Aameeq requires support in three major areas: Equipment, Software, and Training. With the required support, Aameeq can streamline its process and accelerate product development, achieving its goal of developing innovative VR and AR products.';
+    } else if (lowerCaseInput.includes('website')) {
+          return 'You can visit our website at www.aameeq.com to learn more about our services.';
+    } else if (userInput.toLowerCase().includes('industry')) {
+          return 'Aameeq belongs to the E-Learning Providers industry.';
+      } else if (userInput.toLowerCase().includes('company size')||userInput.toLowerCase().includes('total number of members?')) {
+          return 'Aameeq has 2-10 employees.';
+      } else if (userInput.toLowerCase().includes('associated members')) {
+          return 'We have 3 associated members at Aameeq.';
+      } else if (userInput.toLowerCase().includes('reach out')||userInput.toLowerCase().includes('contact details')||userInput.toLowerCase().includes('contact number')||userInput.toLowerCase().includes('days')||userInput.toLowerCase().includes('timing')) {
+          return 'You can contact us at ibrahim@aameeq.com or +92 345 3258910 from Monday to Friday between 9am - 5pm.';
+      } else if (userInput.toLowerCase().includes('clients say')) {
+          return 'Our clients are highly satisfied with our services. Unfortunately, specific testimonials are not available at the moment.';
+      } else if (userInput.toLowerCase().includes('services')||userInput.toLowerCase().includes('what services it offers??')) {
+          return 'We provide customized virtual reality content creation, VR training, CPR training, fire safety training, space exploration, mobility training, golf swing practice, and educational labs.';
+      } else if (userInput.toLowerCase().includes('contact')||userInput.toLowerCase().includes('email address')||userInput.toLowerCase().includes('email')) {
+          return 'Feel free to reach us at hello@aameeq.com or call us at +92 345 3258910 from Monday to Friday between 9am - 5pm.';
+    } else if (userInput.toLowerCase().includes('linkedin')||userInput.toLowerCase().includes('linkedin account')) {
+          return 'Connect with us on LinkedIn: https://www.linkedin.com/company/aame-eq/';
+      } else if (userInput.toLowerCase().includes('facebook')||userInput.toLowerCase().includes('facebook account')) {
+          return 'Visit our Facebook page: https://www.facebook.com/aameeq2/';
+    } else if (userInput.toLowerCase().includes('company goals')||userInput.toLowerCase().includes('what are company goals?')||userInput.toLowerCase().includes('what are objectives of aameeq?')||userInput.toLowerCase().includes('objectives')||userInput.toLowerCase().includes('goals')) {
+          return 'Our company goals are centered around continuous innovation, client satisfaction, and expanding our VR services globally.';
+     } else if (userInput.toLowerCase().includes('unique selling proposition')) {
+          return 'Our unique selling proposition lies in delivering tailored and impactful VR experiences that cater to specific client needs.';
+      } else if (userInput.toLowerCase().includes('competitive advantage')) {
+          return 'Our competitive advantage lies in our ability to offer comprehensive VR solutions with a focus on quality and innovation.';
+        } else if (userInput.toLowerCase().includes('certifications')) {
+          return 'We offer certifications in VR-related skills and applications. Contact us for certification details.';
+      } else if (userInput.toLowerCase().includes('support services')) {
+          return 'We provide comprehensive support services to ensure smooth implementation and usage of our VR solutions.';
+      } else if (userInput.toLowerCase().includes('customer success stories')) {
+          return 'We have numerous success stories where our VR solutions have significantly benefited our clients. Please check our website'
+    } else {
+            return "I'm sorry, I may not have the information to assist with that query. Please contact us directly at hello@aameeq.com for further assistance.";
+        }
+    }
+    document.querySelector('.send-btn').addEventListener('click', () => {
+      handleUserInput();
+    });
+
+    userInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        handleUserInput();
+      }
+    });
+  </script>
+</body>
+</html>
